@@ -4,8 +4,9 @@
 #include "fonctions.h"
 #include "classes.h"
 
+//ceci est le main
 
-int addition (int a, int b)
+/*int addition (int a, int b)
 {
 return a+b;
 }
@@ -13,12 +14,12 @@ return a+b;
 TEST(SquareRootTest, PositiveNos) {
     EXPECT_EQ (3, addition (1,2));
 
-}
+}*/
 
 
 int main(int argc, char **argv) {
 
-goban goban1 ;
+goban goban1;
 int joueur=1;
 int x,y;
 
@@ -29,7 +30,7 @@ while(1)
 
 do
 {
-cin >> x >> y ;
+cin >> x >> y;
 x-= 1;
 y-= 1;
 }
