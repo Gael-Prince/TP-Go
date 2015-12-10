@@ -39,18 +39,15 @@ plateau[x][y].push_back(P);
 }
 
 
-bool goban::PlaceLibre (int x, int y){
-
-if (plateau[x][y].empty() && x<5 && x>=0 && y<5 && y>=0)
-return true;
-else
+bool goban::PlaceLibre (int x, int y)
 {
-cout << "impossible de placer pierre" << endl << endl;
-return false;
+    if (plateau[x][y].empty() && x<5 && x>=0 && y<5 && y>=0)
+            return true;
+
+    cout << "Impossible de placer pierre" << endl << endl;
+    return false;
 
 }
-}
-
 
 void goban::LibertePierre ()
 {
