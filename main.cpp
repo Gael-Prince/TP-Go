@@ -4,7 +4,6 @@
 #include "fonctions.h"
 #include "classes.h"
 
-//ceci est le main
 
 /*int addition (int a, int b)
 {
@@ -14,15 +13,29 @@ return a+b;
 TEST(SquareRootTest, PositiveNos) {
     EXPECT_EQ (3, addition (1,2));
 
-}*/
+}
+*/
+
+
+
+
+TEST_F(gobantest, enDehorsDuTableauTest)
+{
+EXPECT_EQ (false,goban_test.PlaceLibre(6,6));
+EXPECT_EQ (false,goban_test.PlaceLibre(-1,-1));
+EXPECT_EQ (false,goban_test.PlaceLibre(-1,4));
+EXPECT_EQ (true,goban_test.PlaceLibre(1,1));
+}
 
 
 int main(int argc, char **argv) {
 
-goban goban1;
+goban goban1 ;
 int joueur=1;
 int x,y;
 
+testing::InitGoogleTest(&argc, argv);
+return RUN_ALL_TESTS();
 
 
 while(1)
@@ -30,7 +43,7 @@ while(1)
 
 do
 {
-cin >> x >> y;
+cin >> x >> y ;
 x-= 1;
 y-= 1;
 }
@@ -46,16 +59,12 @@ joueur =1;
 
 goban1.LibertePierre();
 
-if (!goban1.plateau[2][2].empty())
- cout << goban1.plateau[2][2][0].liberte << endl;
-
- goban1.AfficheGoban();
+goban1.AfficheGoban();
 
 }
 
 
 
 
-  /*testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();*/
+
 }
