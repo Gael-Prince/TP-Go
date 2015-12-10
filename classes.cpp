@@ -1,4 +1,5 @@
 #include "classes.h"
+
 //Goban
 
 void goban::AfficheGoban ()
@@ -40,7 +41,7 @@ plateau[x][y].push_back(P);
 
 bool goban::PlaceLibre (int x, int y){
 
-if (plateau[x][y].empty())
+if (plateau[x][y].empty() && x<6 && x>0 && y<6 && y>0)
 return true;
 else
 {
@@ -123,15 +124,15 @@ if (!plateau[i][j].empty())
 
                 if (plateau[i][j][0].getLiberte() == 0)
                 {
-                    if (plateau[i][j][0].getCouleur() == 'N')
-                        plateau[i][j][0].setCouleur('B');
-                    else
-                        plateau[i][j][0].setCouleur('N');
 
-                   // plateau[i][j][0].setLiberte(4);
+                    plateau[i][j].clear();
+
                 }
                 }
             }
         }
 }
+
+
+
 
