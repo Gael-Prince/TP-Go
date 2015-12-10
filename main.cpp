@@ -28,6 +28,21 @@ EXPECT_FALSE (goban_test.PlaceLibre(3,3));
 EXPECT_EQ ('B', goban_test.plateau[3][3][0].getCouleur());
 }
 
+TEST_F(gobantest, LibertePierreTest)
+{
+goban_test.PoserPierre (1,2,2);
+goban_test.PoserPierre (2,2,3);
+goban_test.PoserPierre (2,3,2);
+goban_test.PoserPierre (2,1,2);
+goban_test.PoserPierre (2,2,1);
+
+goban_test.LibertePierre();
+
+EXPECT_TRUE (goban_test.plateau[2][2].empty());
+
+}
+
+
 
 
 
@@ -48,7 +63,8 @@ while(1)
 
 do
 {
-cin >> x >> y ;
+cin >> x >> y;
+
 
 }
 while (!goban1.PlaceLibre(x,y));
