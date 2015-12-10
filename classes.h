@@ -61,8 +61,6 @@ public :
     void PoserPierre (int joueur, int x, int y); // pose une pierre au coordonnées x et y de la couleur du joueur
     void LibertePierre (); // calcule le nombre de libertés de la pierre et la supprime si plus de liberté
 
-    void PoserPierre (int joueur, int x, int y);
-    void LibertePierre ();
 
     void AfficheGoban ();
     bool PlaceLibre (int x, int y);

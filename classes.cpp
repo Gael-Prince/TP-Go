@@ -45,6 +45,7 @@ void goban::AfficheGoban ()
 
         }
     }
+    }
 
 
     void goban::PoserPierre (int joueur, int x, int y)
@@ -60,31 +61,12 @@ void goban::AfficheGoban ()
 //... et la mettre dans le vecteur contenant l'ensemble des pierres du jeu
         plateau[x][y].push_back(P);
 
-        pierre P;
-        if (joueur == 1)
-            P.setCouleur('N');
-        if (joueur == 2)
-            P.setCouleur('B');
-
-
-        plateau[x][y].push_back(P);
 
 
     }
 
 
 
-    bool goban::PlaceLibre (int x, int y)
-    {
-// une place est libre si il n'y a pas de pierre dessus et que les coordonnées correspondent effectivement à une case dans le slimites du plateau
-        if (plateau[x][y].empty() && x<5 && x>=0 && y<5 && y>=0)
-            return true;
-        else
-        {
-            cout << "impossible de placer pierre" << endl << endl;
-            return false;
-
-        }
 
         bool goban::PlaceLibre (int x, int y)
         {
