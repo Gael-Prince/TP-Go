@@ -41,7 +41,7 @@ plateau[x][y].push_back(P);
 
 bool goban::PlaceLibre (int x, int y){
 
-if (plateau[x][y].empty() && x<6 && x>0 && y<6 && y>0)
+if (plateau[x][y].empty() && x<6 && x>=0 && y<6 && y>=0)
 return true;
 else
 {
