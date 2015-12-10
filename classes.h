@@ -25,20 +25,6 @@ void setLiberte (int lib){liberte = lib;}
 
 };
 
-class pierretest : public ::testing::Test
-{
-
-protected :
-  pierre pierre1;
-
-virtual void setUp()
-{
-pierre1.setLiberte(0);
-}
-virtual void TearDown(){}
-
-};
-
 
 class goban
 {

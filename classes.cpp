@@ -30,7 +30,7 @@ void goban::PoserPierre (int joueur, int x, int y)
 pierre P;
 if (joueur == 1)
 P.setCouleur('N');
-else
+if (joueur == 2)
 P.setCouleur('B');
 
 
