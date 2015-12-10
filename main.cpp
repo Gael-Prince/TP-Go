@@ -84,31 +84,22 @@ int main(int argc, char **argv)
 
 // alternance des tours
 
-        cin >> x >> y;
 
 
-    }
-    while (!goban1.PlaceLibre(x,y));
-
-    goban1.PoserPierre(joueur, x , y);
-
-
-    if (joueur == 1)
-        joueur =2;
-    else
-        joueur =1;
+        if (joueur == 1)
+            joueur =2;
+        else
+            joueur =1;
 
 
 // on met à jour les libertés -> permet de supprimer la pierre si elle est encerclée (ne marche pas si un groupe de pierre est encerclé)
-    goban1.LibertePierre();
+        goban1.LibertePierre();
 
 // on affihe le goban
 
-    goban1.LibertePierre();
+        goban1.AfficheGoban();
 
-
-    goban1.AfficheGoban();
-
+    }
 }
 
 

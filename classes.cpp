@@ -23,29 +23,13 @@ void goban::AfficheGoban ()
             }
         }
 
+
         cout << endl;
 
-        for (int i=0 ; i<5 ; i++)
-        {
-            for (int j=0; j<5 ; j++)
-            {
-                if (plateau[i][j].empty())
-                    cout << "." << '\t';
-                else
-                {
-                    if (plateau[i][j][0].getCouleur() == 'B')
-                        cout << "O" << '\t';
-                    if (plateau[i][j][0].getCouleur() == 'N')
-                        cout << "X" << '\t';
-                }
-            }
 
-            cout << endl;
-
-
-        }
     }
 }
+
 
 
 void goban::PoserPierre (int joueur, int x, int y)
