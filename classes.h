@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include "gtest/gtest.h"
 using namespace std;
+
 
 
 #ifndef MesClassesDuJeuDeGo_h
@@ -8,7 +10,7 @@ using namespace std;
 
 class pierre
 {
-public :
+protected :
 char couleur;
 int liberte;
 
@@ -19,6 +21,21 @@ void setCouleur (char col) {couleur = col;}
 int getLiberte (){return liberte;}
 void setLiberte (int lib){liberte = lib;}
 
+//~pierre ();
+
+};
+
+class pierretest : public ::testing::Test
+{
+
+protected :
+  pierre pierre1;
+
+virtual void setUp()
+{
+pierre1.setLiberte(0);
+}
+virtual void TearDown(){}
 
 };
 
@@ -34,8 +51,18 @@ void LibertePierre ();
 void AfficheGoban ();
 bool PlaceLibre (int x, int y);
 
+};
 
+class gobantest : public ::testing::Test
+{
+
+protected :
+  goban goban_test;
+
+virtual void setUp(){}
+virtual void TearDown(){}
 
 };
+
 
 #endif // MesClassesDuJeuDeGo_h
