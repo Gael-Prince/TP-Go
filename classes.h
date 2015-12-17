@@ -63,7 +63,7 @@ public :
 
 
     void AfficheGoban ();
-    bool PlaceLibre (int x, int y);
+    bool PlaceLibre (int x, int y, int joueur);
 
 };
 
