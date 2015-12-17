@@ -1,0 +1,10 @@
+
+Utilisation de gcov/lcov
+
+Lors de notre premier tests de % de tests nous avions :
+- 40% de lignes testées
+- 48% de fonctions testées
+
+Après avoir modifié nos test et ajouté nos tests nous avons :
+- 66% de lignes testées
+- 70% de fonctions testées
