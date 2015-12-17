@@ -10,41 +10,26 @@ using namespace std;
 #define MesClassesDuJeuDeGo_h
 
 class pierre
-
 {
-    // une pierre possède une couleur et un nombre de libertés, que l'on peut récupérer et initialiser
-
-
-
 protected :
     char couleur;
     int liberte;
+    bool CaseLibreAdjacente;
+    bool deces;
 
 public :
+    char getCouleur (){return couleur;}
+    void setCouleur (char col){couleur = col;}
 
-    char getCouleur ()
-    {
-        return couleur;
-    }
-    void setCouleur (char col)
-    {
-        couleur = col;
-    }
-    int getLiberte ()
-    {
-        return liberte;
-    }
-    void setLiberte (int lib)
-    {
-        liberte = lib;
-    }
+    int getLiberte (){return liberte;}
+    void setLiberte (int lib){liberte = lib;}
 
+    int getCaseLibreAdjacente (){return CaseLibreAdjacente;}
+    void setCaseLibreAdjacente (bool libre){CaseLibreAdjacente = libre;}
 
-//~pierre ();
-
-
+    int getDeces (){return deces;}
+    void setDeces (bool mort){deces = mort;}
 };
-
 
 class goban
 
