@@ -55,58 +55,32 @@ void goban::PoserPierre (int joueur, int x, int y)
 
 bool goban::PlaceLibre (int x, int y, int joueur)
 {
- if (joueur == 1)
- {
+    // Si la case dans laquelle on souhaite se placer est vide et dans le plateau
     if (plateau[x][y].empty() && x<5 && x>=0 && y<5 && y>=0)
     {
+        // On va ici checker si la pièce se suicide en se posant sur cette case
+        // On va vérifier en une seule boucle les 4 cases adjacentes [x][y+1], [x][y-1], [x+1][y], [x-1][y]
         for (int i=0; i<2; i++)
         {
             for (int j=0; j<2; j++)
             {
+                // Si la case vérifiée est bien dans le tableau
                 if ((((1-i)*x + i*(x-1+2*j))<5) && (((1-i)*x + i*(x-1+2*j))>=0) && ((i*y + (1-i)*(y+1-2*j))<5) && ((i*y + (1-i)*(y+1-2*j)))>=0)
                 {
-                    if (plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)].empty())
-                        return true;
-
-                    else
-                    {
-                        if (plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)][0].getCouleur() == 'N')
-                             return true;
-                    }
+                    // Si la case vérifiée est vide ou si elle contient un jeton de la même couleur, alors on peut jouer
+                    if (plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)].empty() ||
+                       (joueur == 1 && plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)][0].getCouleur() == 'N') ||
+                       (joueur == 2 && plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)][0].getCouleur() == 'B'))
+                            return true;
                 }
             }
         }
     }
- }
-
-  if (joueur == 2)
- {
-    if (plateau[x][y].empty() && x<5 && x>=0 && y<5 && y>=0)
-    {
-        for (int i=0; i<2; i++)
-        {
-            for (int j=0; j<2; j++)
-            {
-                if ((((1-i)*x + i*(x-1+2*j))<5) && (((1-i)*x + i*(x-1+2*j))>=0) && ((i*y + (1-i)*(y+1-2*j))<5) && ((i*y + (1-i)*(y+1-2*j)))>=0)
-                {
-                    if (plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)].empty())
-                        return true;
-
-                    else
-                    {
-                        if (plateau[(1-i)*x + i*(x-1+2*j)][i*y + (1-i)*(y+1-2*j)][0].getCouleur() == 'B')
-                             return true;
-                    }
-                }
-            }
-        }
-    }
- }
-
-        cout << "impossible de placer pierre" << endl << endl;
-        return false;
-
+    // Sinon on ne peut pas jouer dans cette case
+    cout << "Impossible de placer pierre" << endl << endl;
+    return false;
 }
+
 
 
 
