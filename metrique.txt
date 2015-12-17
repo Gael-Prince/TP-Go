@@ -1,10 +1,22 @@
 
 Utilisation de gcov/lcov
 
-Lors de notre premier tests de % de tests nous avions :
+Lors de notre premier test de % de tests nous avions :
 - 40% de lignes testées
 - 48% de fonctions testées
 
-Après avoir modifié nos test et ajouté nos tests nous avons :
-- 66% de lignes testées
-- 70% de fonctions testées
+Après avoir ajouté de nouveaux tests et modifié les anciens nous avons :
+- 77.6% de lignes testées
+- 82.9% de fonctions testées
+
+Les tests :
+
+Le dernier test ne passe pas (prise d'un groupe de trois pierres), nous n'avons pas eu le temps de corriger 
+ce problème.
+
+SourceMonitor :
+
+En regardant le Keviat metrics graph on s'aperçoit que les principaux problèmes sont la profondeur maximale et la complexité maximale.
+C'est dû à la méthode de la classe goban "LibertePierre" qui est longue, complexe et que nous n'avons pas eu le temps d'optimiser.
+
+

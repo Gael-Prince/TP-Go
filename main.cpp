@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "classes.h"
 
+// Les tests :
 
 TEST_F(gobantest, enDehorsDuTableauTest)
 {
@@ -60,7 +61,7 @@ TEST_F(gobantest, LibertePierreEncercle)
 
 TEST_F(gobantest, LibertePierreCoin)
 {
-    // test de prise de pierre dans un coin
+    // test de prise de pierre dans un coin(coin)
     // la pierre du joueur 1
     goban_test.PoserPierre (1,0,0);
     //encercler par 2 pierres du joueur 2 et un coin(coin) : on pose la première pierre
@@ -104,7 +105,7 @@ TEST_F(gobantest, LiberteGroupeEncercle)
 
 TEST_F(gobantest, LiberteGroupeCoin)
 {
-    // test de prise d'un groupe de 2 pierres encerclées et dans un coin
+    // test de prise d'un groupe de 2 pierres encerclées et dans un coin(coin)
     // les pierres du joueur 1
     goban_test.PoserPierre (1,0,0);
     goban_test.PoserPierre (1,1,0);
@@ -171,7 +172,7 @@ int main(int argc, char **argv)
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 
-// Au cas ou on veut jouer on peut
+// Au cas ou on veut jouer on commente la ligne précédente et ça marche
     while(1)
     {
         do
@@ -187,18 +188,15 @@ int main(int argc, char **argv)
 // lorsque le joueur propose une place libre, on pose la pierre
 // alternance des tours
 
-
         if (joueur == 1)
             joueur =2;
         else
             joueur =1;
 
-
 // on met à jour les libertés -> permet de supprimer la pierre si elle est encerclée (ne marche pas si un groupe de pierre est encerclé)
         goban1.LibertePierre();
 
 // on affihe le goban
-
         goban1.AfficheGoban();
     }
 

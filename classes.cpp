@@ -22,11 +22,7 @@ void goban::AfficheGoban ()
                     cout << "X" << '\t';
             }
         }
-
-
         cout << endl;
-
-
     }
 }
 
