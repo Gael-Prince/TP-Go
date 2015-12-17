@@ -5,13 +5,28 @@
 
 // test permettant de vérifier qu'on ne peut placer une pierre en dehors du goban
 
-/*
+
 TEST_F(gobantest, enDehorsDuTableauTest)
 {
-    EXPECT_FALSE (goban_test.PlaceLibre(6,6));
-    EXPECT_FALSE (goban_test.PlaceLibre(-1,-1));
-    EXPECT_FALSE (goban_test.PlaceLibre(-1,4));
-    EXPECT_TRUE (goban_test.PlaceLibre(1,1));
+    //test des limites du goban
+    EXPECT_FALSE (goban_test.PlaceLibre(6,6,1));
+    EXPECT_FALSE (goban_test.PlaceLibre(-1,-1,2));
+    EXPECT_FALSE (goban_test.PlaceLibre(-1,4,1));
+    EXPECT_TRUE (goban_test.PlaceLibre(1,1,1));
+
+    // test de l'anti suicide dans le coin (coin)
+    goban_test.PoserPierre (1,0,1);
+    goban_test.PoserPierre (1,1,0);
+    EXPECT_FALSE (goban_test.PlaceLibre(0,0,2));
+
+    //test de l'anti suicide entre 4 pierres
+    goban_test.PoserPierre (1,1,2);
+    goban_test.PoserPierre (1,2,1);
+    EXPECT_FALSE (goban_test.PlaceLibre(1,1,2));
+
+
+
+
 
 }
 
@@ -21,10 +36,10 @@ TEST_F(gobantest, enDehorsDuTableauTest)
 TEST_F(gobantest, PoseDePierreTest)
 {
     goban_test.PoserPierre (1,2,2);
-    EXPECT_FALSE (goban_test.PlaceLibre(2,2));
+    EXPECT_FALSE (goban_test.PlaceLibre(2,2,2));
     EXPECT_EQ ('N', goban_test.plateau[2][2][0].getCouleur());
     goban_test.PoserPierre (2,3,3);
-    EXPECT_FALSE (goban_test.PlaceLibre(3,3));
+    EXPECT_FALSE (goban_test.PlaceLibre(3,3,1));
     EXPECT_EQ ('B', goban_test.plateau[3][3][0].getCouleur());
 }
 
@@ -45,7 +60,7 @@ TEST_F(gobantest, LibertePierreTest)
 
 }
 
-*/
+
 
 
 
@@ -57,7 +72,7 @@ int main(int argc, char **argv)
     int x,y;
 
     testing::InitGoogleTest(&argc, argv);
-    //RUN_ALL_TESTS();
+    RUN_ALL_TESTS();
 
     while(1)
     {
